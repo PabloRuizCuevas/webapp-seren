@@ -11,7 +11,7 @@
 	</main>
 
 	<footer>
-		<p>Visit <a href="https://www.seren.dk"> Seren</a>, this website was developed by <a>Pablo Ruiz</a> 2022</p>
+		<p>Visit <a href="https://www.seren.dk"> Seren</a>, this website was developed by <a href="https://www.seren.dk">Pablo Ruiz</a> 2022</p>
 	</footer>
 </div>
 

@@ -8,10 +8,9 @@
 
 <ol class="rectangle-list">
     {#each files as item}
-        <li><a href="">{item.name}</a></li>
+        <li><a href="/dashboards">{item.name}</a></li>
     {/each}
 </ol>
-
 
 
 <style>
