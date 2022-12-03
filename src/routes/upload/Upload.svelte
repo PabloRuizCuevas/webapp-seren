@@ -1,8 +1,12 @@
 
 <script lang="ts">
     import { fade } from 'svelte/transition';
-    export let promise: any = null
+    import Download from "./Download.svelte"
+    export let loadList: Boolean = false;
 
+    let root_ip: string = 'http://127.0.0.1:8000';
+    let my_promise: Promise<any> | null  = null
+    //let status: Promise<any> | null  = null
 
     interface Files {
         accepted: any,
@@ -12,56 +16,34 @@
     export let files: Files
 
     async function sendFiles(){
-        promise = true
+        
         if (files.accepted.length === 0){
             console.log('nothing here')
+            return
         }
+        loadList = true
         console.log('aqui')
         
         my_promise = Promise.all(files.accepted.map(async (file: any) => {
             await uploadFile(file);
-        }));
-        
+        })); 
     }
-
-    let my_promise : Promise<any> | null  = null
-
-
-    async function getReport() {
-        console.log('reports')
-        const formData = new FormData();
-        formData.append('name', 'file.name');
-        const download = fetch('http://127.0.0.1:8000/get-report', {
-            method: 'POST'
-        })
-        .then(response => response.blob())
-        .then(blob => {
-            var url = window.URL.createObjectURL(blob);
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = "Report.xlsx";
-            document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
-            a.click();    
-            a.remove();  //afterwards we remove the element again         
-        });
-        }
 
 
     async function uploadFile(file: any){
         const formData = new FormData();
         formData.append('name', 'file.name');
         formData.append('file', file);
-        const upload = fetch('http://127.0.0.1:8000/upload-file', {
+        const upload = fetch(`${root_ip}/upload-file`, {
             method: 'POST',
             body: formData,
             mode: 'no-cors'
         })
-        
         return upload
     }
 
     async function test(file: any){
-        const upload = fetch('http://127.0.0.1:8000/test', {
+        const upload = fetch(`${root_ip}/test`, {
             method: 'GET'
         })
         console.log('request ')
@@ -72,20 +54,20 @@
 
 <button on:click={sendFiles}> Submmit Files </button>
 
-{#if promise != null }
+{#if loadList != false}
     {#await my_promise}
-        <p transition:fade>...waiting</p>
-    {:then response}
-        <p>Files succesfully uploaded</p>
+        <p> Sending files ... </p>
+    {:then}
+        <p transition:fade style="color: green;">Files uploaded !</p>
+        <Download></Download>
     {:catch error}
         <p style="color: red">{error.message}</p>
     {/await}
 {/if}
 
-<button on:click={getReport}> Download Reports </button>
-
 
 <style>
-    
-
+ p{
+    text-align: center;
+ }
 </style>

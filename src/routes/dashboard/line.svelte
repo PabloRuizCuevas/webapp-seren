@@ -1,27 +1,17 @@
 <script lang="ts">
+  import { Doughnut } from 'svelte-chartjs';
   import { data } from './data.js';
-  import { Line } from 'svelte-chartjs';
 
   import {
     Chart as ChartJS,
     Title,
     Tooltip,
     Legend,
-    LineElement,
-    LinearScale,
-    PointElement,
+    ArcElement,
     CategoryScale,
   } from 'chart.js';
 
-  ChartJS.register(
-    Title,
-    Tooltip,
-    Legend,
-    LineElement,
-    LinearScale,
-    PointElement,
-    CategoryScale
-  );
+  ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 </script>
 
-<Line {data} options={{ responsive: true }} />
+<Doughnut {data} options={{ responsive: true }} />
