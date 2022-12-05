@@ -72,7 +72,6 @@
   $: {if (chart) {
       chart.options.animation.animation = animation
       chart.data.datasets[0].data = [salary, pension, sick, accident];
-      
     }
   }
 

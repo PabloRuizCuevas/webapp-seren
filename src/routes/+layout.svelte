@@ -6,10 +6,8 @@
 <div class="app">
 	<Header />
 
-	<main>
-		<slot />
-	</main>
-
+	<slot /> <!-- main -->
+	
 	<footer>
 		<p>Visit <a href="https://www.seren.dk"> Seren</a>, this website was developed by <a href="https://www.seren.dk">Pablo Ruiz</a> 2022</p>
 	</footer>
@@ -22,7 +20,7 @@
 		min-height: 100vh;
 	}
 
-	main {
+	:global(main){	
 		flex: 1;
 		display: flex;
 		flex-direction: column;

@@ -6,35 +6,70 @@
 
 <script lang="ts">
 
-
-  import Bars from "./bars.svelte"
-  import Line from "./line.svelte"
-  import BarsHandler from "./barsHandler.svelte"
-  import Table from "./table.svelte"
-
-  var tableData = [
-    {id:1, name:"Billy Bob", age:"12", gender:"male", height:1, col:"red", dob:"", cheese:1},
-    {id:2, name:"Mary May", age:"1", gender:"female", height:2, col:"blue", dob:"14/05/1982", cheese:true},
-]
+  import BarsHandler from "./components/barsHandler.svelte"
+  import Donut from "./components/donutHandler.svelte"
+  import Table from "./components/tableHandler.svelte"
 
 </script>
 
-<h1> My Dashboard</h1>
+<main>
+  <h1> My Dashboard</h1>
 
-<!-- <Table/> -->
+  <div class='container'>
+    <div class='item'>
+      <BarsHandler/>
+    </div>
 
-<BarsHandler/>
-<Line/>
+    <div class='item'>
+      <Donut/>
+    </div>
 
+    <div class='item'>
+      <Table/>
+    </div>
+  </div>
+ 
+</main>
 
 
 <style>
 
+  main {
+    max-width: 94rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  
+    border-radius: 10px;
+    border-color: black;
+
+    max-width: 40rem;
+    
+    flex-grow: 4;
+
+    padding: 10px;
+    margin: 2px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  }
+
 	h1 {
-        color: grey;
+    color: grey;
 		/* display: flex; */
 		justify-content: space-between;
-        align-items: center;
+    align-items: center;
 	}
 
 </style>
