@@ -13,7 +13,7 @@
 </script>
 
 <main>
-  <h1> My Dashboard</h1>
+  <h1> Oscar Andersen </h1>
 
   <div class='container'>
     <div class='item'>
@@ -33,6 +33,8 @@
 
 
 <style>
+
+
 
   main {
     max-width: 94rem;
@@ -70,6 +72,17 @@
 		/* display: flex; */
 		justify-content: space-between;
     align-items: center;
+    
+    margin: 10px;
+    text-align: center;
+    padding:10px;
+    margin: 5px;
+    border:0;
+
+    border-radius: 10px;
+    
+
+    
 	}
 
 </style>
