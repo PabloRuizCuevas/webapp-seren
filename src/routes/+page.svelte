@@ -1,5 +1,4 @@
 <script>
-	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 </script>
@@ -18,14 +17,10 @@
 			</picture>
 		</span>
 
-		to your new<br />SvelteKit app
 	</h1>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+	<h2> The Page is still under rapid development, for now you need to click on Dashboard in this page to load it correctly (i.e) not going directly from the browser.</h2>
+	
 </section>
 
 <style>
