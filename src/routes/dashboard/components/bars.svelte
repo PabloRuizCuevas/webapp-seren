@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Chart } from 'svelte-chartjs';
+  import {Chart} from 'svelte-chartjs';
 
   import {
     Chart as ChartJS,
@@ -36,8 +36,7 @@
 
   const labels = ['Salary', 'Pension', 'Insurance', 'Worst Case'];
 
-
-  export const data = {
+  const data = {
     labels,
     datasets: [
       {
@@ -51,22 +50,22 @@
     ],
   };
 
-  export const options = {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
       },
-      animation: {
-        duration: 1000,
-        animation: animation
-      },
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      maintainAspectRatio: false
+    },
+    animation: {
+      duration: 1000,
+      animation: animation
+    },
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    maintainAspectRatio: false
   };
 
   $: {if (chart) {
